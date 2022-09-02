@@ -10,7 +10,7 @@ students = read_students.readlines()
 
 # If the students list is empty, then it will open the students_init.txt file and read the lines into
 # the students list.
-if students.__len__() == 0:
+if not students:
     students_init = open("data/students_init.txt")
     students = students_init.readlines()
     students_init.close()
