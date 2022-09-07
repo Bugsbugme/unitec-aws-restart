@@ -2,30 +2,49 @@
 # Get a list of students
 # Choose a student from that list and then remove them
 
-import random
+from os import system
+from pathlib import Path
+from random import choice
 
-# Opening the file students_tmp.txt and reading the lines into a list called students.
-read_students = open("data/tmp/students_tmp.txt")
-students = read_students.readlines()
 
-# If the students list is empty, then it will open the students_init.txt file and read the lines into
-# the students list.
-if not students:
-    students_init = open("data/students_init.txt")
-    students = students_init.readlines()
-    students_init.close()
+def initializeStudentList(savPath, initPath):
+    """
+    If the file at savPath exists, read it into studentsList, if it's empty, write the contents of
+    initPath to it, then read it into studentsList. If the file at savPath doesn't exist, create it,
+    write the contents of initPath to it, then read it into studentsList
 
-# Choosing a random student from the list and printing it out.
-student = random.choice(students)
-print(student.strip() + " has been chosen for screen sharing")
+    :param savPath: The path to the file that will be saved
+    :param initPath: The path to the file that contains the initial list of students
+    :return: A list of students
+    """
+    studentsList = []
+    if savPath.exists():
+        studentsList = open(savPath).readlines()
+        if not (studentsList):
+            print("Save file empty, rebuilding...\n")
+            open(savPath, "w").writelines(open(initPath).readlines())
+            studentsList = open(savPath).readlines()
+    else:
+        print("Save file does not exist, building new one...\n")
+        open(savPath, "x").writelines(open(initPath).readlines())
+        studentsList = open(savPath).readlines()
+    return studentsList
 
-# Removing the student from the list and update students.tmp
-students.remove(student)
-students_tmp = open("data/tmp/students_tmp.txt", "w")
-students_tmp.writelines(students)
-students_tmp.close()
 
-# Printing the contents of the file students_tmp.txt.
-students_tmp = open("data/tmp/students_tmp.txt")
-print(students_tmp.readlines())
-students_tmp.close()
+# end def
+
+
+system("cls")
+
+initPath = Path("data/students_init.txt")
+savPath = Path("data/students_sav.txt")
+studentsList = initializeStudentList(savPath, initPath)
+
+student = choice(studentsList)
+print(f"{student.strip()} has been chosen for screen sharing\n")
+
+studentsList.remove(student)
+print(f"{len(studentsList)} Student(s) remaining:")
+for student in studentsList:
+    print(student.strip())
+open(savPath, "w").writelines(studentsList)
