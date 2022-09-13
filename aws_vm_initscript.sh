@@ -1,5 +1,6 @@
 #!/bin/sh
 # The purpose of this program is to auto install packag$# on the aws virtual machine
+# To install, run this: "curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh"
 
 # Installing the epel repository.
 sudo amazon-linux-extras install epel
@@ -37,6 +38,10 @@ sudo pip3 install tldr
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo ohmyzsh was installed | cowsay
 
+# This is installing the zsh-autosuggestions plugin.
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo zsh-autosuggestions was installed | cowsay
+
 # This is downloading the passion.zsh-theme file from the github repository and placing it in the
 # ZSH_CUSTOM/themes/ directory.
 curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/passion.zsh-theme > ZSH_CUSTOM/themes/passion.zsh-theme
@@ -46,9 +51,5 @@ echo retrieved ohmyzsh theme file | cowsay
 curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/data/.zshrc > $HOME/.zshrc
 echo retrieved .zshrc | cowsay
 
-# This is installing the zsh-autosuggestions plugin.
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-echo zsh-autosuggestions was installed | cowsay
-
-# 
+# This is changing the default shell to zsh.
 sudo chsh -s $(which zsh) $(whoami) && zsh
