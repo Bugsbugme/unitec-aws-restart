@@ -44,7 +44,7 @@ echo zsh-autosuggestions was installed | cowsay
 
 # This is downloading the passion.zsh-theme file from the github repository and placing it in the
 # ZSH_CUSTOM/themes/ directory.
-curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/passion.zsh-theme > ZSH_CUSTOM/themes/passion.zsh-theme
+curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme
 echo retrieved ohmyzsh theme file | cowsay
 
 # Downloading the .zshrc file from the github repository and placing it in the home directory.
