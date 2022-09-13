@@ -1,6 +1,6 @@
 # Gracie's MCAWS - AWS re/Start practice files 💻
 
-![profile_picture](https://media-exp1.licdn.com/dms/image/D4D35AQHyYaRsPHQ_Yw/profile-framedphoto-shrink_200_200/0/1656900440723?e=1662541200&v=beta&t=uY_9mfCmvrIMrj_hYzhEvCCbIq6K5WZ-zVFBJm-UtLQ)
+![profile_picture](https://media-exp1.licdn.com/dms/image/D4D35AQHyYaRsPHQ_Yw/profile-framedphoto-shrink_400_400/0/1656900440723?e=1663560000&v=beta&t=YSZEtAeIxeWLQ1SBphZfwA69b6WG--QaXQtdQKIU6ZI)
 
 - [Gracie on GitHub](https://github.com/Bugsbugme)
 - [Gracie on LinkdIn](https://www.linkedin.com/in/gracie-bryan)
