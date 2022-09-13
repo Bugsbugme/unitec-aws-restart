@@ -43,7 +43,7 @@ curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/p
 echo retrieved ohmyzsh theme file | cowsay
 
 # Downloading the .zshrc file from the github repository and placing it in the home directory.
-curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/tree/main/dat > $HOME/.zshrc
+curl https://github.com/Bugsbugme/unitec-aws-restart/blob/main/data/.zshrc > $HOME/.zshrc
 echo retrieved .zshrc | cowsay
 
 # This is installing the zsh-autosuggestions plugin.
