@@ -67,5 +67,4 @@ curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/p
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions && echo Installed zsh-autosuggestions | cowsay
 
 # This is changing the default shell to zsh.
-sudo chsh -s $(which zsh) $(whoami)
-exec zsh -l
+sudo chsh -s $(which zsh) $(whoami) && exec zsh -l
