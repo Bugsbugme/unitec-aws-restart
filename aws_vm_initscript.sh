@@ -61,7 +61,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 
 # This is changing the default shell to zsh.
 sudo chsh -s $(which zsh) $(whoami)
-echo
-echo VM Initialization complete. The connection needs to be reset to update the shell.
-echo Disconnecting...
-exit
+exec zsh -l
