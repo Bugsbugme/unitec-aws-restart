@@ -2,6 +2,14 @@
 # The purpose of this program is to auto install packag$# on the aws virtual machine
 # To install, run this: "curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh"
 
+echo Specify path to labsuser.pem
+read varpem
+
+echo Specify AWS VM IP Address
+read varip
+
+ssh -i $varpem ec2-user@$varip
+
 # Installing the cowsay package.
 sudo yum install cowsay -y
 echo Installed cowsay | cowsay
@@ -59,11 +67,9 @@ curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/p
 # This is installing the zsh-autosuggestions plugin.
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions && echo Installed zsh-autosuggestions | cowsay
 
-# This is downloading the passion.zsh-theme file from the github repository and placing it in the
-# ZSH_CUSTOM/themes/ directory.
-# curl https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme && echo Retrieved ohmyzsh theme file | cowsay
-
 # This is changing the default shell to zsh.
 sudo chsh -s $(which zsh) $(whoami)
-zsh
-zsh
+
+echo VM Initialization complete. The connection needs to be reset to update the shell.
+echo Disconnecting...
+exit
