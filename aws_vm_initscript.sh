@@ -1,6 +1,6 @@
 #!/bin/bash
 # The purpose of this program is to auto install package on the aws virtual machine
-# To install, run this: "curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh"
+# To install, run this: sh -c "$(curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh)"
 
 # Installing the cowsay package.
 sudo yum install cowsay -y
@@ -24,9 +24,11 @@ chmod +x installrust.sh
 ./installrust.sh -y
 echo Installed rust | cowsay
 
+# This is installing broot.
 mkdir $HOME/bin
 curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot
 chmod +x $HOME/bin/broot
+echo Installed broot | cowsay
 
 # This is installing tmux.
 git clone https://github.com/tmux/tmux.git
