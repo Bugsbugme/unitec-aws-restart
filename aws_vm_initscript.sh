@@ -51,7 +51,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # This is downloading the passion.zsh-theme file from the github repository and placing it in the
 # ZSH_CUSTOM/themes/ directory.
-curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme && echo Retrieved ohmyzsh theme file | cowsay
+git clone https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes && echo Retrieved ohmyzsh theme file | cowsay
 
 # Downloading the .zshrc file from the github repository and placing it in the home directory.
 curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/data/.zshrc > $HOME/.zshrc && echo Retrieved .zshrc | cowsay
