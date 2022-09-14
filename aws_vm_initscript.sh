@@ -1,6 +1,6 @@
 #!/bin/bash
 # The purpose of this program is to auto install package on the aws virtual machine
-# To install, run this: sh -c "$(curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh)"
+# To install, run this: sh -c "$(curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && exec zsh -l)"
 
 # Installing the cowsay package.
 sudo yum install cowsay -y
@@ -67,4 +67,4 @@ curl https://raw.githubusercontent.com/ChesterYue/ohmyzsh-theme-passion/master/p
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions && echo Installed zsh-autosuggestions | cowsay
 
 # This is changing the default shell to zsh.
-sudo chsh -s $(which zsh) $(whoami) && exec zsh -l
+sudo chsh -s $(which zsh) $(whoami)
