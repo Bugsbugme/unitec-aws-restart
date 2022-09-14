@@ -54,7 +54,7 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 # This is downloading the passion.zsh-theme file from the github repository and placing it in the
 # ZSH_CUSTOM/themes/ directory.
-git clone https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme && echo Retrieved ohmyzsh theme file | cowsay
+git clone https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > $ZSH_CUSTOM/themes/ && echo Retrieved ohmyzsh theme file | cowsay
 
 # This is installing the zsh-autosuggestions plugin.
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions && echo Installed zsh-autosuggestions | cowsay
