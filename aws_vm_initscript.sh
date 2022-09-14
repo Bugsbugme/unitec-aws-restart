@@ -43,12 +43,13 @@ echo Installed ohmytmux | cowsay
 # Installing tldr.
 sudo pip3 install tldr && echo Installed tldr | cowsay
 
+# This is installing ohmyzsh.
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo Installed ohmyzsh | cowsay
+
 # Downloading the .zshrc file from the github repository and placing it in the home directory.
 curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/data/.zshrc > $HOME/.zshrc && echo Retrieved .zshrc | cowsay
 
 # Set ZSH_CUSTOM path
-mkdir ~/.oh-my-zsh/custom/plugins
-mkdir ~/.oh-my-zsh/custom/themes
 ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 # This is downloading the passion.zsh-theme file from the github repository and placing it in the
@@ -57,9 +58,6 @@ curl https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh
 
 # This is installing the zsh-autosuggestions plugin.
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions && echo Installed zsh-autosuggestions | cowsay
-
-# This is installing ohmyzsh.
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo Installed ohmyzsh | cowsay
 
 # This is downloading the passion.zsh-theme file from the github repository and placing it in the
 # ZSH_CUSTOM/themes/ directory.
