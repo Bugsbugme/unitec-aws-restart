@@ -7,7 +7,7 @@ sudo yum install cowsay -y
 echo Installed cowsay | cowsay
 
 # Installing the epel repository.
-sudo amazon-linux-extras install epel
+sudo amazon-linux-extras install epel -y
 echo Installed epel | cowsay
 
 # This is a for loop that will install all the packages listed in the loop.
