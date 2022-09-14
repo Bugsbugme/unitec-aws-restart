@@ -64,4 +64,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 # curl https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme && echo Retrieved ohmyzsh theme file | cowsay
 
 # This is changing the default shell to zsh.
-sudo chsh -s $(which zsh) $(whoami) && zsh
+sudo chsh -s $(which zsh) $(whoami)
+zsh
+zsh
