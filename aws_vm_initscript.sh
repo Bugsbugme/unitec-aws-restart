@@ -68,4 +68,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 
 # This is changing the default shell to zsh.
 sudo chsh -s $(which zsh) $(whoami)
-exec zsh -l
+sh exec zsh -l
