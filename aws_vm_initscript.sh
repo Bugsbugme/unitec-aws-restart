@@ -47,7 +47,8 @@ sudo pip3 install tldr && echo Installed tldr | cowsay
 curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/data/.zshrc > $HOME/.zshrc && echo Retrieved .zshrc | cowsay
 
 # Set ZSH_CUSTOM path
-mkdir ~/.oh-my-zsh/custom
+mkdir ~/.oh-my-zsh/custom/plugins
+mkdir ~/.oh-my-zsh/custom/themes
 ZSH_CUSTOM=~/.oh-my-zsh/custom
 
 # This is downloading the passion.zsh-theme file from the github repository and placing it in the
