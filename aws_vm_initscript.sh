@@ -60,8 +60,7 @@ echo Installing rust... | cowsay
 echo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installrust.sh
 chmod +x installrust.sh
-./installrust.sh -y
-echo -e "\n${GREEN}[Installed rust]${NC}\n"
+./installrust.sh -y && echo -e "\n${GREEN}[Installed rust]${NC}\n"
 
 # This is installing broot.
 echo Installing broot... | cowsay
@@ -69,8 +68,7 @@ echo
 mkdir $HOME/bin
 curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot
 chmod +x $HOME/bin/broot
-broot --install
-echo -e "\n${GREEN}[Installed broot]${NC}\n"
+broot --install && echo -e "\n${GREEN}[Installed broot]${NC}\n"
 
 # This is installing tmux.
 echo Installing tmux... | cowsay
@@ -80,8 +78,7 @@ cd tmux
 sh autogen.sh
 ./configure
 make
-sudo make install
-echo -e "\n${GREEN}[Installed tmux]${NC}\n"
+sudo make install && echo -e "\n${GREEN}[Installed tmux]${NC}\n"
 
 # This is installing ohmytmux.
 echo Installing ohmytmux... | cowsay
@@ -89,8 +86,7 @@ echo
 cd $HOME
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
-echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
+cp .tmux/.tmux.conf.local . && echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
 
-echo -e "${GREEN}Initialization complete.${NC}" | cowsay
+echo -e "${GREEN}Initialization complete. Entering zsh...${NC}" | cowsay
 echo
