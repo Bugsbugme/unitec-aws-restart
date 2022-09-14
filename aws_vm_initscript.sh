@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # The purpose of this program is to auto install packag$# on the aws virtual machine
 # To install, run this: "curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh"
 
@@ -43,19 +43,26 @@ echo Installed ohmytmux | cowsay
 # Installing tldr.
 sudo pip3 install tldr && echo Installed tldr | cowsay
 
-# This is installing ohmyzsh.
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo Installed ohmyzsh | cowsay
-
-# This is installing the zsh-autosuggestions plugin.
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && echo Installed zsh-autosuggestions | cowsay
-
-# This is downloading the passion.zsh-theme file from the github repository and placing it in the
-# ZSH_CUSTOM/themes/ directory.
-zsh
-curl https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme && echo Retrieved ohmyzsh theme file | cowsay
-
 # Downloading the .zshrc file from the github repository and placing it in the home directory.
 curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/data/.zshrc > $HOME/.zshrc && echo Retrieved .zshrc | cowsay
 
+# Set ZSH_CUSTOM path
+mkdir ~/.oh-my-zsh/custom
+ZSH_CUSTOM=~/.oh-my-zsh/custom
+
+# This is downloading the passion.zsh-theme file from the github repository and placing it in the
+# ZSH_CUSTOM/themes/ directory.
+curl https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme && echo Retrieved ohmyzsh theme file | cowsay
+
+# This is installing the zsh-autosuggestions plugin.
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions && echo Installed zsh-autosuggestions | cowsay
+
+# This is installing ohmyzsh.
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo Installed ohmyzsh | cowsay
+
+# This is downloading the passion.zsh-theme file from the github repository and placing it in the
+# ZSH_CUSTOM/themes/ directory.
+# curl https://github.com/ChesterYue/ohmyzsh-theme-passion/blob/master/passion.zsh-theme > $ZSH_CUSTOM/themes/passion.zsh-theme && echo Retrieved ohmyzsh theme file | cowsay
+
 # This is changing the default shell to zsh.
-sudo chsh -s $(which zsh) $(whoami) && zsh
+# sudo chsh -s $(which zsh) $(whoami) && zsh
