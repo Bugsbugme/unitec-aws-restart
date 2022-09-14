@@ -24,6 +24,10 @@ chmod +x installrust.sh
 ./installrust.sh -y
 echo Installed rust | cowsay
 
+mkdir $HOME/bin
+curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot
+chmod +x $HOME/bin/broot
+
 # This is installing tmux.
 git clone https://github.com/tmux/tmux.git
 cd tmux
