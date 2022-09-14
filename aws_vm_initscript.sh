@@ -89,5 +89,5 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local . && echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
 
-echo -e "${GREEN}Initialization complete. Entering zsh...${NC}" | cowsay
+echo -e "${GREEN}Initialization complete, entering zsh...${NC}" | cowsay
 echo
