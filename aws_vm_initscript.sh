@@ -28,6 +28,7 @@ echo Installed rust | cowsay
 mkdir $HOME/bin
 curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot
 chmod +x $HOME/bin/broot
+broot --install
 echo Installed broot | cowsay
 
 # This is installing tmux.
