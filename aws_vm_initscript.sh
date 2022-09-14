@@ -1,6 +1,6 @@
 #!/bin/bash
 # The purpose of this program is to auto install package on the aws virtual machine
-# To install, run this: curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && exec zsh -l
+# To install, run this: curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && exec zsh -l
 
 # Setting color variables.
 GREEN="\033[0;32m"
@@ -39,7 +39,8 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom && echo -e "${GREEN}[Set ZSH_CUSTOM path]${NC}\n"
 # ZSH_CUSTOM/themes/ directory.
 echo Fetching ohmyzsh theme... | cowsay
 echo
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 && echo -e "\n${GREEN}[Retreived ohmyzsh theme]${NC}\n"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 # This is installing the zsh-autosuggestions plugin.
 echo Installing zsh-autosuggestions... | cowsay
