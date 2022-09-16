@@ -71,6 +71,7 @@ ZSH_THEME="spaceship"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
+source $ZSH/oh-my-zsh.sh
 plugins=( 
     # Depends on https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
     zsh-autosuggestions
