@@ -75,7 +75,8 @@ source $ZSH/oh-my-zsh.sh
 plugins=( 
     # Depends on https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
     zsh-autosuggestions
-    # other plugins...
+    # Depends on https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh
+    [plugins...] zsh-syntax-highlighting
 )
 
 # User configuration
