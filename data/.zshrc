@@ -75,8 +75,6 @@ source $ZSH/oh-my-zsh.sh
 plugins=( 
     # Depends on https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh
     zsh-autosuggestions
-    # Depends on https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh
-    [plugins...] zsh-syntax-highlighting
 )
 
 # User configuration
@@ -116,3 +114,6 @@ alias c="curl"
 alias mk="mkdir"
 alias t="touch"
 alias cudo="chmod ugo+rwx"
+
+# Load zsh-syntax-higlighting
+source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
