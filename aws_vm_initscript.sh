@@ -26,7 +26,7 @@ done
 
 # This is installing ohmyzsh.
 echo Installing ohmyzsh... | cowsay
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && echo -e "\n${GREEN}[Installed ohmyzsh]${NC}\n"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo -e "\n${GREEN}[Installed ohmyzsh]${NC}\n"
 
 # Downloading the .zshrc file from the github repository and placing it in the home directory.
 echo Fetching zshrc config... | cowsay
