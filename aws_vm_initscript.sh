@@ -52,11 +52,6 @@ echo Installing zsh-syntax-highlighting... | cowsay
 echo
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting && echo -e "\n${GREEN}[Installed zsh-syntax-highlighting]${NC}\n"
 
-# This is changing the default shell to zsh.
-sudo chsh -s $(which zsh)
-sudo chsh -s $(which zsh) $(whoami)
-echo
-
 # This is installing the tldr package.
 echo Installing tldr... | cowsay
 echo
@@ -94,6 +89,11 @@ cd $HOME
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local . && echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
+
+# This is changing the default shell to zsh.
+sudo chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $(whoami)
+echo
 
 echo -e "${GREEN}Initialization complete, entering zsh...${NC}" | cowsay
 echo
