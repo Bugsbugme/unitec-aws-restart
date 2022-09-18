@@ -114,6 +114,7 @@ alias c="curl"
 alias mk="mkdir"
 alias t="touch"
 alias cudo="chmod ugo+rwx"
+alias tmux="env SHELL=/usr/bin/zsh tmux"
 
 # Load zsh-syntax-higlighting
 source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
