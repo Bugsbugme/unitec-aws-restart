@@ -75,20 +75,20 @@ broot --install && echo -e "\n${GREEN}[Installed broot]${NC}\n"
 # This is installing tmux.
 echo Installing tmux... | cowsay
 echo
-git clone https://github.com/tmux/tmux.git
-cd tmux
+git clone https://github.com/tmux/tmux.git $HOME/bin/tmux
+cd $HOME/bin/tmux
 sh autogen.sh
 ./configure
 make
 sudo make install && echo -e "\n${GREEN}[Installed tmux]${NC}\n"
 
 # This is installing ohmytmux.
-# echo Installing ohmytmux... | cowsay
-# echo
-# cd $HOME
-# git clone https://github.com/gpakosz/.tmux.git
-# ln -s -f .tmux/.tmux.conf
-# cp .tmux/.tmux.conf.local . && echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
+echo Installing ohmytmux... | cowsay
+echo
+cd $HOME
+git clone https://github.com/gpakosz/.tmux.git $HOME/bin/oh-my-tmux
+ln -s -f $HOME/bin/oh-my-tmux/.tmux.conf ~/.tmux.conf
+cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
 
 # This is changing the default shell to zsh.
 sudo chsh -s $(which zsh)
