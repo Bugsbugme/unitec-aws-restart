@@ -2,9 +2,9 @@ class Track:
     """
     This is a Track object
     Required Properties:
-      Title
-      Artist
-      Duration
+        Title
+        Artist
+        Duration
     """
 
     def __init__(self, title, artist, duration):
@@ -17,9 +17,9 @@ class Playlist:
     """
     This is a Playlist object
     Required Properties:
-      Tracks
-      Title
-      Creator
+        Tracks
+        Title
+        Creator
     """
 
     def __init__(self, tracks, title, creator):
