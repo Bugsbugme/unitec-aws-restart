@@ -29,10 +29,10 @@ def playlists():
 @app.get("/playlists/{playlist_id}")
 def playlist_by_id(playlist_id):
     """
-    It takes a playlist ID as an argument, and returns the playlist with that ID
+    It takes a playlist ID as an argument, and returns the playlist with that ID.
 
     :param playlist_id: The ID of the playlist you want to get
-    :return: A playlist object
+    :return: A list of songs
     """
     playlist_id = int(playlist_id)
     playlist_length = len(dotify.playlists)
