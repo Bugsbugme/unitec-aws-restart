@@ -36,7 +36,7 @@ def playlist_by_id(playlist_id):
     """
     playlist_id = int(playlist_id)
     playlist_length = len(dotify.playlists)
-    if playlist_id > playlist_length or playlist_id < 0:
+    if playlist_id >= playlist_length or playlist_id < 0:
         return "Invalid Playlist ID"
     else:
         return dotify.playlists[playlist_id]
