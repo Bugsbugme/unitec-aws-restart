@@ -1,0 +1,2 @@
+To run a uvicorn server in linux
+uvicorn hello:app --host 0.0.0.0 --port 2222
