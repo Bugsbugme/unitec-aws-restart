@@ -35,7 +35,7 @@ curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/data/.z
 # Set ZSH_CUSTOM path
 ZSH_CUSTOM=~/.oh-my-zsh/custom && echo -e "${GREEN}[Set ZSH_CUSTOM path]${NC}\n"
 
-# This is downloading a ohmyzsh theme file from the github repository and placing it in the
+# This is downloading an ohmyzsh theme file from the github repository and placing it in the
 # ZSH_CUSTOM/themes/ directory.
 echo Fetching ohmyzsh theme... | cowsay
 echo
@@ -58,11 +58,11 @@ echo
 sudo pip3 install tldr && echo -e "\n${GREEN}[Installed tldr]${NC}\n"
 
 # This is installing rust.
-echo Installing rust... | cowsay
-echo
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installrust.sh
-chmod +x installrust.sh
-./installrust.sh -y && echo -e "\n${GREEN}[Installed rust]${NC}\n"
+# echo Installing rust... | cowsay
+# echo
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installrust.sh
+# chmod +x installrust.sh
+# ./installrust.sh -y && echo -e "\n${GREEN}[Installed rust]${NC}\n"
 
 # This is installing broot.
 echo Installing broot... | cowsay
