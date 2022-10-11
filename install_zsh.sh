@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/install_zsh.sh
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/install_zsh.sh | sh
 
 # This is setting the color variables.
 GREEN="\033[0;32m"
@@ -11,15 +11,22 @@ echo -e "\n[Installing cowsay...]\n"
 sudo yum install cowsay -y && echo -e "${GREEN}Installed Cowsay${NC}" | cowsay
 echo
 
+echo Installing util-linux-user... | cowsay
+echo
+sudo yum install util-linux-user -y && echo -e "\n${GREEN}[Installed util-linux-user]${NC}\n"
+echo
+
 # This is installing the epel repository and then echoing the message that it was installed.
 echo Installing Epel Repsitory... | cowsay
 echo
 sudo amazon-linux-extras install epel && echo -e "\n${GREEN}[Installed Epel Repository]${NC}\n"
+echo
 
 # This is installing the ZShell package and then echoing the message that it was installed.
 echo Installing ZShell... | cowsay
 echo
 sudo yum install -y zsh && echo -e "\n${GREEN}[Installed ZShell]${NC}\n"
+echo
 
 # # This is installing ohmyzsh.
 # echo Installing Oh My Zsh... | cowsay
