@@ -8,17 +8,21 @@ GREEN="\033[0;32m"
 NC="\033[0m"
 
 # This is installing the cowsay package.
-echo -e "\n[Installing cowsay...]\n"
-sudo yum install cowsay -y && echo -e "${GREEN}Installed cowsay${NC}" | cowsay
+echo -e "\n[Installing Cowsay...]\n"
+sudo yum install cowsay -y && echo -e "${GREEN}Installed Cowsay${NC}" | cowsay
 echo
 
 # This is installing the epel repository.
-echo Installing epel... | cowsay
+echo Installing the Epel Repository... | cowsay
 echo
-sudo amazon-linux-extras install epel && echo -e "\n${GREEN}[Installed epel]${NC}\n"
+sudo amazon-linux-extras install epel && echo -e "\n${GREEN}[Installed the Epel Repository]${NC}\n"
 
 # This is a for loop that will install all the packages listed in the loop.
-for package in git gcc zsh jq util-linux-user automake libevent-devel bison ncurses-devel docker
+# util-linux-user is needed for the chsh command.
+# gcc is needed for C compiling.
+# jq is a lightweight and flexible command-line JSON processor
+# automake is needed to build Tmux
+for package in util-linux-user zsh git gcc jq automake libevent-devel ncurses-devel docker
 do
         echo Installing ${package}... | cowsay
         echo
@@ -26,20 +30,17 @@ do
 done
 
 # This is installing ohmyzsh.
-echo Installing ohmyzsh... | cowsay
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo -e "\n${GREEN}[Installed ohmyzsh]${NC}\n"
+echo Installing Oh My Zsh... | cowsay
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && echo -e "\n${GREEN}[Installed Oh My Zsh]${NC}\n"
 
 # Downloading the .zshrc file from the github repository and placing it in the home directory.
 echo Fetching zshrc config... | cowsay
 curl https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/data/.zshrc > $HOME/.zshrc && echo -e "\n${GREEN}[Retreived zshrc config]${NC}\n"
 
-# Set ZSH_CUSTOM path
-ZSH_CUSTOM=~/.oh-my-zsh/custom && echo -e "${GREEN}[Set ZSH_CUSTOM path]${NC}\n"
-
-# This is downloading an ohmyzsh theme file from the github repository and placing it in the
-# ZSH_CUSTOM/themes/ directory.
-echo Fetching ohmyzsh theme... | cowsay
+# This is downloading an ohmyzsh theme file from the github repository and placing it in the ZSH_CUSTOM/themes/ directory.
+echo Fetching Oh My Zsh theme... | cowsay
 echo
+ZSH_CUSTOM=~/.oh-my-zsh/custom
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1 && echo -e "\n${GREEN}[Retreived ohmyzsh theme]${NC}\n"
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
@@ -53,25 +54,10 @@ echo Installing zsh-syntax-highlighting... | cowsay
 echo
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting && echo -e "\n${GREEN}[Installed zsh-syntax-highlighting]${NC}\n"
 
-# This is installing the tldr package.
-echo Installing tldr... | cowsay
+# This is changing the default shell to zsh.
+echo Changing default Shell to ZShell... | cowsay
+sudo chsh -s $(which zsh) && sudo chsh -s $(which zsh) "$USER"
 echo
-sudo pip3 install tldr && echo -e "\n${GREEN}[Installed tldr]${NC}\n"
-
-# This is installing rust.
-# echo Installing rust... | cowsay
-# echo
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installrust.sh
-# chmod +x installrust.sh
-# ./installrust.sh -y && echo -e "\n${GREEN}[Installed rust]${NC}\n"
-
-# This is installing broot.
-echo Installing broot... | cowsay
-echo
-mkdir $HOME/bin
-curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot
-chmod +x $HOME/bin/broot
-broot --install && echo -e "\n${GREEN}[Installed broot]${NC}\n"
 
 # This is installing tmux.
 echo Installing tmux... | cowsay
@@ -88,18 +74,38 @@ echo Installing ohmytmux... | cowsay
 echo
 git clone https://github.com/gpakosz/.tmux.git $HOME/bin/oh-my-tmux
 ln -s -f $HOME/bin/oh-my-tmux/.tmux.conf ~/.tmux.conf
-cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
+cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREEN}[Installed Oh My Tmux]${NC}\n"
 cd $HOME
 
-# This is configuring Docker to work with the ec2-user acoount
-# echo Configuring Docker... | cowsay
-# sudo usermod -a -G docker ec2-user
-# newgrp docker
-
-# This is changing the default shell to zsh.
-sudo chsh -s $(which zsh)
-sudo chsh -s $(which zsh) $(whoami)
+# This is installing broot.
+echo Installing Broot... | cowsay
 echo
+mkdir $HOME/bin
+curl https://dystroy.org/broot/download/x86_64-linux/broot > $HOME/bin/broot
+chmod +x $HOME/bin/broot
+broot --install && echo -e "\n${GREEN}[Installed Broot]${NC}\n"
 
-echo -e "${GREEN}Initialization complete, entering zsh...${NC}" | cowsay
+# This is installing the tldr package.
+echo Installing tldr... | cowsay
+echo
+sudo pip3 install tldr && echo -e "\n${GREEN}[Installed tldr]${NC}\n"
+
+# This is installing rust.
+# echo Installing rust... | cowsay
+# echo
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installrust.sh
+# chmod +x installrust.sh
+# ./installrust.sh -y && echo -e "\n${GREEN}[Installed rust]${NC}\n"
+
+# This is using an external script to install ZShell, Oh My Zsh and some other ZShell plugins
+# echo Installing ZShell... | cowsay
+# echo
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/install_zsh.sh | sh && echo -e "\n${GREEN}[Installed ZShell]${NC}\n"
+
+# This is configuring Docker to work with the ec2-user acoount
+echo Configuring Docker... | cowsay
+echo
+curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/configure_docker.sh | zsh && echo -e "\n${GREEN}[Configured Docker]${NC}\n"
+
+echo "${GREEN}Initialization complete.${NC}" | cowsay
 echo

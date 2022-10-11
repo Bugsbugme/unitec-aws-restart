@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/install_zsh.sh | sh
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/install_zsh.sh | sh && exec zsh -l
 
 # This is setting the color variables.
 GREEN="\033[0;32m"
@@ -11,14 +11,10 @@ echo -e "\n[Installing cowsay...]\n"
 sudo yum install cowsay -y && echo -e "${GREEN}Installed Cowsay${NC}" | cowsay
 echo
 
-# This is installing the packages util-linux-user, git, and zsh.
-# util-linux-user is needed for the chsh command.
-for package in util-linux-user git zsh
-do
-        echo Installing ${package}... | cowsay
-        echo
-        sudo yum install -y $package && echo -e "\n${GREEN}[Installed ${package}]${NC}\n"
-done
+# This is installing the ZShell package and then echoing the message that it was installed.
+echo Installing ZShell... | cowsay
+echo
+sudo yum install -y zsh && echo -e "\n${GREEN}[Installed ZShell]${NC}\n"
 
 # This is installing ohmyzsh.
 echo Installing Oh My Zsh... | cowsay
@@ -46,5 +42,5 @@ echo
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting && echo -e "\n${GREEN}[Installed zsh-syntax-highlighting]${NC}\n"
 
 # This is changing the default shell to zsh.
-sudo chsh -s $(which zsh) && sudo chsh -s $(which zsh) "$USER" && exec zsh -l
+sudo chsh -s $(which zsh) && sudo chsh -s $(which zsh) "$USER"
 echo
