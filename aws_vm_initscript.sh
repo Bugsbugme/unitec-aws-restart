@@ -1,7 +1,7 @@
 #!/bin/bash
 # The purpose of this program is to auto install package on the aws virtual machine
 # To install, run this: 
-# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/configure_docker.sh | sh && exec zsh -l
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && exec zsh -l
 
 # This is setting the color variables.
 GREEN="\033[0;32m"
