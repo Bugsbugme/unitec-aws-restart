@@ -1,6 +1,7 @@
 #!/bin/bash
 # The purpose of this program is to auto install package on the aws virtual machine
-# To install, run this: curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && exec zsh -l
+# To install, run this: 
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && sudo usermod -a -G docker ec2-user && newgrp docker && exec zsh -l
 
 # This is setting the color variables.
 GREEN="\033[0;32m"
@@ -91,9 +92,9 @@ cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREE
 cd $HOME
 
 # This is configuring Docker to work with the ec2-user acoount
-echo Configuring Docker... | cowsay
-sudo usermod -a -G docker ec2-user
-newgrp docker
+# echo Configuring Docker... | cowsay
+# sudo usermod -a -G docker ec2-user
+# newgrp docker
 
 # This is changing the default shell to zsh.
 sudo chsh -s $(which zsh)
