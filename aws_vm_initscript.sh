@@ -1,7 +1,7 @@
 #!/bin/bash
 # The purpose of this program is to auto install package on the aws virtual machine
 # To install, run this: 
-# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && exec zsh -l && curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/configure_docker.sh | sh
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/configure_docker.sh | sh && exec zsh -l
 
 # This is setting the color variables.
 GREEN="\033[0;32m"
@@ -28,6 +28,35 @@ do
         echo
         sudo yum install -y $package && echo -e "\n${GREEN}[Installed ${package}]${NC}\n"
 done
+
+# This is installing tmux.
+echo Installing tmux... | cowsay
+echo
+git clone https://github.com/tmux/tmux.git $HOME/bin/tmux
+cd $HOME/bin/tmux
+sh autogen.sh
+./configure
+make
+sudo make install && echo -e "\n${GREEN}[Installed tmux]${NC}\n"
+cd $HOME
+
+# This is installing ohmytmux.
+echo Installing ohmytmux... | cowsay
+echo
+git clone https://github.com/gpakosz/.tmux.git $HOME/bin/oh-my-tmux
+ln -s -f $HOME/bin/oh-my-tmux/.tmux.conf ~/.tmux.conf
+cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREEN}[Installed Oh My Tmux]${NC}\n"
+
+# This is installing broot.
+echo Installing Broot... | cowsay
+echo
+curl -s https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot && chmod +x $HOME/bin/broot
+broot --install && echo -e "\n${GREEN}[Installed Broot]${NC}\n"
+
+# This is installing the tldr package.
+echo Installing tldr... | cowsay
+echo
+sudo pip3 install tldr && echo -e "\n${GREEN}[Installed tldr]${NC}\n"
 
 # This is installing ohmyzsh.
 echo Installing Oh My Zsh... | cowsay
@@ -58,37 +87,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 echo Changing default Shell to ZShell... | cowsay
 sudo chsh -s $(which zsh) && sudo chsh -s $(which zsh) "$USER"
 echo
-
-# This is installing tmux.
-echo Installing tmux... | cowsay
-echo
-git clone https://github.com/tmux/tmux.git $HOME/bin/tmux
-cd $HOME/bin/tmux
-sh autogen.sh
-./configure
-make
-sudo make install && echo -e "\n${GREEN}[Installed tmux]${NC}\n"
-
-# This is installing ohmytmux.
-echo Installing ohmytmux... | cowsay
-echo
-git clone https://github.com/gpakosz/.tmux.git $HOME/bin/oh-my-tmux
-ln -s -f $HOME/bin/oh-my-tmux/.tmux.conf ~/.tmux.conf
-cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREEN}[Installed Oh My Tmux]${NC}\n"
-cd $HOME
-
-# This is installing broot.
-echo Installing Broot... | cowsay
-echo
-mkdir $HOME/bin/broot
-curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot
-chmod +x $HOME/bin/broot
-broot --install && echo -e "\n${GREEN}[Installed Broot]${NC}\n"
-
-# This is installing the tldr package.
-echo Installing tldr... | cowsay
-echo
-sudo pip3 install tldr && echo -e "\n${GREEN}[Installed tldr]${NC}\n"
 
 # This is installing rust.
 # echo Installing rust... | cowsay
