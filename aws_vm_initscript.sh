@@ -30,18 +30,18 @@ do
 done
 
 # This is installing tmux.
-echo Installing tmux... | cowsay
+echo Installing Tmux... | cowsay
 echo
 git clone https://github.com/tmux/tmux.git $HOME/bin/tmux
 cd $HOME/bin/tmux
 sh autogen.sh
 ./configure
 make
-sudo make install && echo -e "\n${GREEN}[Installed tmux]${NC}\n"
+sudo make install && echo -e "\n${GREEN}[Installed Tmux]${NC}\n"
 cd $HOME
 
 # This is installing ohmytmux.
-echo Installing ohmytmux... | cowsay
+echo Installing Oh My Tmux... | cowsay
 echo
 git clone https://github.com/gpakosz/.tmux.git $HOME/bin/oh-my-tmux
 ln -s -f $HOME/bin/oh-my-tmux/.tmux.conf ~/.tmux.conf
@@ -50,7 +50,7 @@ cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREE
 # This is installing broot.
 echo Installing Broot... | cowsay
 echo
-curl -s https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot && chmod +x $HOME/bin/broot
+curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot && chmod +x $HOME/bin/broot
 broot --install && echo -e "\n${GREEN}[Installed Broot]${NC}\n"
 
 # This is installing the tldr package.
