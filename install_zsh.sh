@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh
+
 # This is setting the color variables.
 GREEN="\033[0;32m"
 NC="\033[0m"
@@ -46,6 +48,5 @@ echo
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting && echo -e "\n${GREEN}[Installed zsh-syntax-highlighting]${NC}\n"
 
 # This is changing the default shell to zsh.
-sudo chsh -s "$zsh"
-sudo chsh -s "$zsh" "$USER"
+sudo chsh -s "$zsh" && sudo chsh -s "$zsh" "$USER" && exec zsh -l
 echo
