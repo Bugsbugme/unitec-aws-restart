@@ -21,8 +21,8 @@ sudo amazon-linux-extras install epel && echo -e "\n${GREEN}[Installed the Epel 
 # util-linux-user is needed for the chsh command.
 # gcc is needed for C compiling.
 # jq is a lightweight and flexible command-line JSON processor
-# automake is needed to build Tmux
-for package in util-linux-user zsh git gcc jq automake libevent-devel ncurses-devel docker
+# automake and bison are needed to build Tmux
+for package in util-linux-user zsh git gcc jq automake libevent-devel ncurses-devel bison docker
 do
         echo Installing ${package}... | cowsay
         echo
@@ -83,17 +83,24 @@ echo Installing zsh-syntax-highlighting... | cowsay
 echo
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting && echo -e "\n${GREEN}[Installed zsh-syntax-highlighting]${NC}\n"
 
-# This is changing the default shell to zsh.
-echo Changing default Shell to ZShell... | cowsay
-sudo chsh -s $(which zsh) && sudo chsh -s $(which zsh) "$USER"
-echo
-
 # This is installing rust.
 # echo Installing rust... | cowsay
 # echo
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > installrust.sh
 # chmod +x installrust.sh
 # ./installrust.sh -y && echo -e "\n${GREEN}[Installed rust]${NC}\n"
+
+# This is changing the default shell to zsh.
+echo Changing default Shell to ZShell... | cowsay
+sudo chsh -s $(which zsh) && sudo chsh -s $(which zsh) "$USER"
+echo
+
+# This is configuring Docker to work with the ec2-user acoount
+echo Configuring Docker... | cowsay
+sudo usermod -a -G docker ec2-user | sh && newgrp docker | sh && sudo systemctl start docker.service | sh && echo -e "\n${GREEN}[Configured Docker]${NC}\n"
+
+echo -e "${GREEN}Initialization complete.${NC}" | cowsay
+echo
 
 # This is using an external script to install ZShell, Oh My Zsh and some other ZShell plugins
 # echo Installing ZShell... | cowsay
