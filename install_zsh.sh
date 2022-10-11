@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/install_zsh.sh
 
 # This is setting the color variables.
 GREEN="\033[0;32m"
