@@ -17,7 +17,7 @@ echo
 sudo amazon-linux-extras install epel && echo -e "\n${GREEN}[Installed epel]${NC}\n"
 
 # This is a for loop that will install all the packages listed in the loop.
-for package in git gcc zsh jq sl util-linux-user automake libevent-devel bison ncurses-devel
+for package in git gcc zsh jq util-linux-user automake libevent-devel bison ncurses-devel docker
 do
         echo Installing ${package}... | cowsay
         echo
@@ -88,9 +88,14 @@ echo
 git clone https://github.com/gpakosz/.tmux.git $HOME/bin/oh-my-tmux
 ln -s -f $HOME/bin/oh-my-tmux/.tmux.conf ~/.tmux.conf
 cp $HOME/bin/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local && echo -e "\n${GREEN}[Installed ohmytmux]${NC}\n"
+cd $HOME
+
+# This is configuring Docker to work with the ec2-user acoount
+echo Configuring Docker... | cowsay
+sudo usermod -a -G docker ec2-user
+newgrp docker
 
 # This is changing the default shell to zsh.
-cd $HOME
 sudo chsh -s $(which zsh)
 sudo chsh -s $(which zsh) $(whoami)
 echo
