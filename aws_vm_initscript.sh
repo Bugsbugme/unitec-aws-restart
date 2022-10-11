@@ -1,7 +1,7 @@
 #!/bin/bash
 # The purpose of this program is to auto install package on the aws virtual machine
 # To install, run this: 
-# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && sudo usermod -a -G docker ec2-user && newgrp docker && sudo systemctl start docker.service && exec zsh -l
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/aws_vm_initscript.sh | sh && exec zsh -l && curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/configure_docker.sh | sh
 
 # This is setting the color variables.
 GREEN="\033[0;32m"
@@ -80,8 +80,8 @@ cd $HOME
 # This is installing broot.
 echo Installing Broot... | cowsay
 echo
-mkdir $HOME/bin
-curl https://dystroy.org/broot/download/x86_64-linux/broot > $HOME/bin/broot
+mkdir $HOME/bin/broot
+curl https://dystroy.org/broot/download/x86_64-unknown-linux-gnu/broot > $HOME/bin/broot
 chmod +x $HOME/bin/broot
 broot --install && echo -e "\n${GREEN}[Installed Broot]${NC}\n"
 
@@ -103,9 +103,9 @@ sudo pip3 install tldr && echo -e "\n${GREEN}[Installed tldr]${NC}\n"
 # curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/install_zsh.sh | sh && echo -e "\n${GREEN}[Installed ZShell]${NC}\n"
 
 # This is configuring Docker to work with the ec2-user acoount
-echo Configuring Docker... | cowsay
-echo
-curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/configure_docker.sh | zsh && echo -e "\n${GREEN}[Configured Docker]${NC}\n"
+# echo Configuring Docker... | cowsay
+# echo
+# curl -s https://raw.githubusercontent.com/Bugsbugme/unitec-aws-restart/main/configure_docker.sh | zsh && echo -e "\n${GREEN}[Configured Docker]${NC}\n"
 
-echo "${GREEN}Initialization complete.${NC}" | cowsay
-echo
+# echo -e "${GREEN}Initialization complete.${NC}" | cowsay
+# echo
