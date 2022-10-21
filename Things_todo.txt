@@ -1,0 +1,18 @@
+Important Networking:
+	IP Adresses
+	Ports
+	TCP/UDP
+	Subnetting
+
+Cloud
+	KC's
+	Test (open book)
+	Presentation about one of the Amazon Cloud Services
+
+Internship
+	Journal
+	Presentation
+	Report
+
+Not Needed to Pass
+	AWS Practitioner Exam
